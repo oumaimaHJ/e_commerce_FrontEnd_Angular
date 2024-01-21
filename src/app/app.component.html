@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body> -->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a class="clickable" (click)="onSelectedProducts()">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="clickable" (click)="onProductsPromo()">Promotion</a></li>
+          <li><a class="clickable" (click)="onProductsDispo()">Disponibles</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/caddies">Caddies</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <a>{{caddyService.getCurrentCaddy()?.name}} | {{caddyService.getCurrentCaddy()?.items?.size}}</a>
+      </li>
+      <li>
+        <a class="btn" (click)="onLogout()">
+          <span class="glyphicon glyphicon-log-out"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <div class="col-md-3">
+    <ul class="list-group" *ngIf="categories">
+      <li [ngClass]="currentCategorie==c?'active':''" (click)="getProductsByCat(c)" class="list-group-item clickable" *ngFor="let c of categories._embedded.categories">
+         {{c.name}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+
+</div>
+
+<!-- </body>
+</html> -->
